@@ -29,17 +29,46 @@ public class SnakeCamelUtil {
 	}
 	
 	static String capitalize(String s) {
-		char first = s.charAt(0);
-		char upperFirst = Character.toUpperCase(first);
-		String rest = s.substring(1);
-		return upperFirst + rest;
+		if(s.equals("")) {
+			return "";
+		} else {
+			char first = s.charAt(0);
+			char upperFirst = Character.toUpperCase(first);
+			String rest = s.substring(1);
+			return upperFirst + rest;
+		}
 	}
 
 	static String uncapitalize(String s) {
-		char first = s.charAt(0);
-		char lowerFirst = Character.toLowerCase(first);
-		String rest = s.substring(1);
-		return lowerFirst + rest;
+		if(s.equals("")) {
+			return "";
+		} else {
+			char first = s.charAt(0);
+			char lowerFirst = Character.toLowerCase(first);
+			String rest = s.substring(1);
+			return lowerFirst + rest;
+		}
+	}
+	
+	public static void main(String[] args) {
+		String rtn;
+		rtn = capitalize("");
+		rtn = capitalize("a");
+		rtn = capitalize("xyz");
+		
+		rtn = uncapitalize("");
+		rtn = uncapitalize("A");
+		rtn = uncapitalize("Xyz");
+		
+		rtn = snakeToCamelcase("abc");
+		rtn = snakeToCamelcase("abc_def");
+		rtn = snakeToCamelcase("abc_def_gh");
+		rtn = snakeToCamelcase("abc__def__gh");
+		rtn = snakeToCamelcase("_abc_def__");
+		
+		rtn = camelToSnakecase("Abc");
+		rtn = camelToSnakecase("AbcDef");
+		rtn = camelToSnakecase("AbcDefGh");
 	}
 	
 }
